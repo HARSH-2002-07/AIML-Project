@@ -1,0 +1,62 @@
+{
+  "Random Forest": {
+    "mean_auc": 0.9662813078856962,
+    "per_target_auc": {
+      "ICH": 1.0,
+      "subdural": 0.9776774998799866,
+      "epidural": 0.9607182940516275,
+      "infarct": 0.9894602272727273,
+      "fracture": 1.0,
+      "midline_shift": 0.9980984153461219,
+      "normal": 0.8380147186494104
+    },
+    "accuracies": {
+      "ICH": 1.0,
+      "subdural": 0.9566666666666667,
+      "epidural": 0.9833333333333333,
+      "infarct": 0.9416666666666667,
+      "fracture": 1.0,
+      "midline_shift": 0.9933333333333333,
+      "normal": 0.7533333333333333
+    },
+    "f1_scores": {
+      "ICH": 1.0,
+      "subdural": 0.6829268292682927,
+      "epidural": 0.0,
+      "infarct": 0.8961424332344213,
+      "fracture": 1.0,
+      "midline_shift": 0.9636363636363636,
+      "normal": 0.7028112449799196
+    }
+  },
+  "L2-Logistic Regression": {
+    "mean_auc": 0.9651978186074717,
+    "per_target_auc": {
+      "ICH": 1.0,
+      "subdural": 0.9697086073640249,
+      "epidural": 0.9705387205387205,
+      "infarct": 0.9885795454545455,
+      "fracture": 1.0,
+      "midline_shift": 0.9987322768974145,
+      "normal": 0.828825579997596
+    },
+    "accuracies": {
+      "ICH": 1.0,
+      "subdural": 0.8916666666666667,
+      "epidural": 0.9333333333333333,
+      "infarct": 0.9366666666666666,
+      "fracture": 1.0,
+      "midline_shift": 0.9883333333333333,
+      "normal": 0.7516666666666667
+    },
+    "f1_scores": {
+      "ICH": 1.0,
+      "subdural": 0.5255474452554745,
+      "epidural": 0.2,
+      "infarct": 0.8888888888888888,
+      "fracture": 1.0,
+      "midline_shift": 0.9391304347826087,
+      "normal": 0.7037773359840954
+    }
+  }
+}

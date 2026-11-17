@@ -1,0 +1,12 @@
+# CT Head AI — Classical Machine Learning & Radiomics Dependencies
+# 100% Non-Deep Learning Stack
+
+numpy>=1.22.0
+pandas>=1.4.0
+scipy>=1.8.0
+scikit-learn>=1.1.0
+joblib>=1.1.0
+opencv-python-headless>=4.5.0
+matplotlib>=3.5.0
+tabulate>=0.8.9
+tqdm>=4.64.0
