@@ -15,18 +15,48 @@ from sklearn.metrics import roc_auc_score, accuracy_score, confusion_matrix, cla
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(BASE_DIR))
 
-# Radiological explanation map for physical features
+# Comprehensive radiological explanation map for physical features
 BIOMARKER_EXPLANATIONS = {
+    # Brain Window
+    "brain_mean": "Mean baseline attenuation of brain parenchyma (~20-40 HU)",
+    "brain_std": "Attenuation variance reflecting tissue heterogeneity",
+    "brain_p90": "Upper quantile attenuation capturing high-density parenchymal components",
     "brain_p95": "Elevated 95th percentile HU signals acute extravasated blood pooling (50-90 HU)",
-    "brain_hyperdense_ratio": "Percentage of brain parenchyma exceeding 60 HU threshold",
+    "brain_p99": "Severe peak attenuation confirming focal hyperdense hematoma core",
     "brain_skewness": "Positive distribution skew confirms hyperdense hemorrhagic component",
-    "subdural_p95": "High subdural window intensity captures extra-axial crescentic/lens hematomas",
-    "hemispheric_asymmetry_mean": "Left-right density disparity quantifies midline shift & mass effect",
+    "brain_kurtosis": "Peakedness of density distribution reflecting focal density outliers",
+    "brain_hyperdense_ratio": "Percentage of brain parenchyma exceeding 60 HU acute blood threshold",
+    "brain_hypodense_ratio": "Percentage of tissue below 20 HU reflecting cytotoxic edema or ischemic infarct",
+
+    # Subdural Window
+    "subdural_mean": "Mean attenuation in subdural space capturing extra-axial fluid collections",
+    "subdural_std": "Density variance confirming mixed-age or active extravasation hematoma",
+    "subdural_p90": "Upper 90th percentile intensity indicating subdural pooling",
+    "subdural_p95": "High subdural window intensity capturing extra-axial crescentic/lens hematomas",
+    "subdural_p99": "Extremely high 99th percentile HU confirms acute extravasated hyperdense blood pooling (50-90 HU)",
+    "subdural_skewness": "Positive distribution skew confirming hyperdense hemorrhagic component",
+    "subdural_kurtosis": "Heavy-tailed density profile confirming focal extra-axial hematoma",
+    "subdural_hyperdense_ratio": "Percentage of subdural volume occupied by acute extravasated blood (>60 HU)",
+    "subdural_hypodense_ratio": "Hypodense subdural fluid collection reflecting chronic hematoma / hygroma",
+
+    # Bone Window
+    "bone_mean": "Baseline cortical bone attenuation density",
+    "bone_std": "Bone attenuation variance",
+    "bone_p95": "Cortical calvarium density profile",
+    "bone_p99": "Dense cortical bone threshold (>1000 HU)",
     "bone_edge_density_mean": "High Canny edge discontinuity flags cortical skull fracture breaks",
+    "bone_edge_density_max": "Peak cortical edge discontinuity confirming comminuted fracture",
     "bone_gradient_mag_mean": "High Sobel gradient magnitude confirms displaced bone fragments",
+
+    # Symmetry (Midline Shift)
+    "hemispheric_asymmetry_mean": "Left-right density disparity quantifies midline shift & mass effect",
+    "hemispheric_asymmetry_max": "Peak lateral hemispheric density disparity indicating severe mass displacement",
+    "hemispheric_asymmetry_p95": "95th-percentile bilateral disparity confirming ventricular compression and shift",
+
+    # Texture (GLCM)
     "glcm_contrast": "Disrupted local tissue texture reflects ischemic edema or parenchymal damage",
     "glcm_homogeneity": "Reduced homogeneity indicates loss of normal grey-white matter interface",
-    "brain_hypodense_ratio": "Hypodense tissue volume (<20 HU) reflects acute/subacute ischemic stroke",
+    "glcm_energy": "Reduced GLCM energy indicates parenchymal tissue disruption from acute infarction",
 }
 
 def evaluate_pipeline():

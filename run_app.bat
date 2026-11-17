@@ -1,8 +1,9 @@
 @echo off
+cd /d "%~dp0"
 title CT Head AI -- Classical Radiomics Triage Dashboard
 echo ==============================================================================
 echo   CT Head AI -- Launching Interactive Streamlit Clinical Dashboard
-echo   Delhi Technological University (DTU) | Classical ML Capstone
+echo   Delhi Technological University (DTU) - Classical ML Capstone
 echo ==============================================================================
 echo Starting local web server on http://localhost:8501 ...
 echo.

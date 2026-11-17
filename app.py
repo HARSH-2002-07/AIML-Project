@@ -336,10 +336,12 @@ with tab1:
                     val = feats.get(f_name, 0.0)
                     explanation = BIOMARKER_EXPLANATIONS.get(f_name, "Quantitative mathematical distribution marker")
                     st.markdown(f"""
-                    <div style='background:#1e293b; padding:10px; border-radius:6px; margin-bottom:8px; border-left:3px solid #38bdf8;'>
-                        <span style='font-family:monospace; color:#38bdf8; font-size:12px;'>{f_name}</span><br>
-                        <b>Measured Value:</b> {val:.3f} &nbsp;|&nbsp; <b>Model Weight:</b> {f_weight:.3f}<br>
-                        <small style='color:#94a3b8;'>🩺 {explanation}</small>
+                    <div style='background:#1e293b; color:#f8fafc; padding:12px 14px; border-radius:8px; margin-bottom:10px; border-left:4px solid #38bdf8; box-shadow:0 2px 4px rgba(0,0,0,0.1);'>
+                        <div style='font-family:monospace; color:#38bdf8; font-size:13px; font-weight:bold; margin-bottom:4px;'>{f_name}</div>
+                        <div style='color:#e2e8f0; font-size:13px; margin-bottom:4px;'>
+                            <b>Measured Value:</b> <span style='color:#facc15; font-weight:bold;'>{val:.3f}</span> &nbsp;|&nbsp; <b>Model Weight:</b> <span style='color:#a78bfa; font-weight:bold;'>{f_weight:.3f}</span>
+                        </div>
+                        <div style='color:#94a3b8; font-size:12px;'>🩺 {explanation}</div>
                     </div>
                     """, unsafe_allow_html=True)
     else:
